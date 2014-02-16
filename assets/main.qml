@@ -8,7 +8,13 @@ NavigationPane {
         signal refreshList()
         signal search()
         signal openContact(int contactId)
+        property string appName: "Contacts Inspector"
         property alias activityRunning: activityIndicator.running
+
+        titleBar: TitleBar {
+            title: page.appName
+        }
+        
         content: Container {
             layout: DockLayout { }
             ListView {

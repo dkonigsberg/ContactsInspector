@@ -58,6 +58,8 @@ ApplicationUI::ApplicationUI(bb::cascades::Application *app) : QObject(app), loa
     app->setMenu(Menu::create().addAction(aboutItem));
     app->setMenuEnabled(true);
 
+    bb::ApplicationInfo appInfo;
+    page_->setProperty("appName", appInfo.title());
     page_->setProperty("activityRunning", true);
     QMetaObject::invokeMethod(this, "onRefreshContactsList", Qt::QueuedConnection);
 }
